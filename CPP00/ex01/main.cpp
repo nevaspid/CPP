@@ -6,7 +6,7 @@
 /*   By: gloms <rbrendle@student.42mulhouse.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 16:09:07 by gloms             #+#    #+#             */
-/*   Updated: 2023/12/06 22:18:43 by gloms            ###   ########.fr       */
+/*   Updated: 2023/12/06 22:32:32 by gloms            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -155,20 +155,19 @@ void	add_contact(Phonebook *pb)
 
 int main()
 {
-	int quit = 0;
 	Phonebook phonebook;
 	std::string temp;
 
 	std::cout << "welcome to my phonebobok\n";
 	std::cout << "please type :\nADD : to set a new contact\nSEARCH : to find a contact\nEXIT : to leave the program.\n\n";
-	while (quit == 0)
+	while (1)
 	{
 		std::getline(std::cin, temp);
 		if (temp == "ADD")
 			add_contact(&phonebook);
 		else if (temp == "SEARCH")
 			search_contact(phonebook);
-		else if (temp == "EXIT")
+		else if (temp == "EXIT" || std::cin.eof())
 		 	exit(0);
 		else
 		{
