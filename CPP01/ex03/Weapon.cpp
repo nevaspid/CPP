@@ -1,27 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.cpp                                         :+:      :+:    :+:   */
+/*   Weapon.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gloms <rbrendle@student.42mulhouse.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/04 20:08:17 by gloms             #+#    #+#             */
-/*   Updated: 2024/06/14 19:20:15 by gloms            ###   ########.fr       */
+/*   Created: 2024/06/14 17:42:22 by gloms             #+#    #+#             */
+/*   Updated: 2024/06/16 12:21:52 by gloms            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include "Weapon.hpp"
 
-Zombie::Zombie(std::string name) {
-	this->_name = name;
-	std::cout << "Zombie constructor called for : " << this->_name << std::endl;
+Weapon::Weapon(std::string type) {
+	this->_type = type;
+	std::cout << "Constructor called for weapon type : "<< this->_type << std::endl;
 }
 
-Zombie::~Zombie() {
-	std::cout << "Zombie destructor called for : " << this->_name << std::endl;
+Weapon::~Weapon() {
+	std::cout << "Destructor called for weapon type : "<< this->_type << std::endl;
 }
 
-void Zombie::announce()
+const std::string	&Weapon::getType()
 {
-	std::cout << this->_name << ": " << "BraiiiiiiinnnzzzZ..." << std::endl;
+	std::string &ref = this->_type;
+	return (ref);
+}
+
+void	Weapon::setType(std::string newType) {
+	this->_type = newType;
 }

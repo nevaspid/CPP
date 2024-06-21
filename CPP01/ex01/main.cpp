@@ -1,27 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.cpp                                         :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gloms <rbrendle@student.42mulhouse.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/04 20:08:17 by gloms             #+#    #+#             */
-/*   Updated: 2024/06/14 19:20:15 by gloms            ###   ########.fr       */
+/*   Created: 2024/06/04 20:28:31 by gloms             #+#    #+#             */
+/*   Updated: 2024/06/14 16:50:38 by gloms            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
 
-Zombie::Zombie(std::string name) {
-	this->_name = name;
-	std::cout << "Zombie constructor called for : " << this->_name << std::endl;
-}
-
-Zombie::~Zombie() {
-	std::cout << "Zombie destructor called for : " << this->_name << std::endl;
-}
-
-void Zombie::announce()
+int	main()
 {
-	std::cout << this->_name << ": " << "BraiiiiiiinnnzzzZ..." << std::endl;
+	Zombie *horde;
+
+	horde = zombieHorde(3, "Steven");
+	for (int i = 0; i < 3; ++i)
+        horde[i].announce();
+	delete[] horde;
+	return 0;
 }

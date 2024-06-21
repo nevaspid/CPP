@@ -1,27 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.cpp                                         :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gloms <rbrendle@student.42mulhouse.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/04 20:08:17 by gloms             #+#    #+#             */
-/*   Updated: 2024/06/14 19:20:15 by gloms            ###   ########.fr       */
+/*   Created: 2024/06/14 17:18:54 by gloms             #+#    #+#             */
+/*   Updated: 2024/06/14 17:36:19 by gloms            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include <iostream>
 
-Zombie::Zombie(std::string name) {
-	this->_name = name;
-	std::cout << "Zombie constructor called for : " << this->_name << std::endl;
-}
-
-Zombie::~Zombie() {
-	std::cout << "Zombie destructor called for : " << this->_name << std::endl;
-}
-
-void Zombie::announce()
+int main()
 {
-	std::cout << this->_name << ": " << "BraiiiiiiinnnzzzZ..." << std::endl;
+	std::string str = "HI THIS IS BRAIN";
+	std::string *STRINGptr = &str;
+	std::string &STRINGref = str;
+
+	std::cout << &str << std::endl;
+	std::cout << STRINGptr << std::endl;
+	std::cout << &STRINGref << std::endl;
+
+	std::cout << str << std::endl;
+	std::cout << *STRINGptr << std::endl;
+	std::cout << STRINGref << std::endl;
+
+	//en brrrrr
+
+	return 0;
 }

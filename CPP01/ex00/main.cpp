@@ -6,12 +6,11 @@
 /*   By: gloms <rbrendle@student.42mulhouse.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/04 20:28:31 by gloms             #+#    #+#             */
-/*   Updated: 2024/06/08 02:13:31 by gloms            ###   ########.fr       */
+/*   Updated: 2024/06/14 16:07:53 by gloms            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
-#include <cstdlib>
 
 int	main()
 {

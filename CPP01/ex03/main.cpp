@@ -1,27 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.cpp                                         :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gloms <rbrendle@student.42mulhouse.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/04 20:08:17 by gloms             #+#    #+#             */
-/*   Updated: 2024/06/14 19:20:15 by gloms            ###   ########.fr       */
+/*   Created: 2024/06/14 17:42:05 by gloms             #+#    #+#             */
+/*   Updated: 2024/06/21 15:44:22 by gloms            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include "HumanA.hpp"
+#include "HumanB.hpp"
 
-Zombie::Zombie(std::string name) {
-	this->_name = name;
-	std::cout << "Zombie constructor called for : " << this->_name << std::endl;
-}
-
-Zombie::~Zombie() {
-	std::cout << "Zombie destructor called for : " << this->_name << std::endl;
-}
-
-void Zombie::announce()
+int	main(void)
 {
-	std::cout << this->_name << ": " << "BraiiiiiiinnnzzzZ..." << std::endl;
+	Weapon Stick("Stick");
+	Weapon *none = new Weapon("hands");
+	Weapon *Sword = new Weapon("Sword");
+	HumanA Bob("Bob", Stick);
+	HumanB Alibert("Alibert");
+
+	Alibert.weapon = none;
+	Alibert.attack();
+	Bob.attack();
+	Alibert.weapon = Sword;
+	Alibert.attack();
+	delete none;
+	delete Sword;
 }
+
