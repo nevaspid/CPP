@@ -1,29 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   HumanA.hpp                                         :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gloms <rbrendle@student.42mulhouse.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/14 17:42:14 by gloms             #+#    #+#             */
-/*   Updated: 2024/07/08 16:23:24 by gloms            ###   ########.fr       */
+/*   Created: 2024/07/04 17:56:13 by gloms             #+#    #+#             */
+/*   Updated: 2024/07/08 19:53:22 by gloms            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef HUMANA_HPP
-#define HUMANA_HPP
-#include "Weapon.hpp"
+#include "ClapTrap.hpp"
+#include "ScavTrap.hpp"
 
-class HumanA
+int main()
 {
-	public :
-		HumanA(std::string name, Weapon &weapon);
-		~HumanA();
-		void	attack();
+	ClapTrap claptrap("Claptrap", 100, 100, 30);
+	ClapTrap claptrap2("Claptrap2", 100, 100, 30);
+	ScavTrap Scavy("Scavynator", 100, 50, 20);
 
-	private :
-		std::string _name;
-		Weapon	&_weapon;
-};
-
-#endif
+	claptrap.attack("Claptrap2");
+	claptrap2.takeDamage(30);
+	claptrap2.attack("Claptrap");
+	claptrap.takeDamage(30);
+	Scavy.guardGate();
+}

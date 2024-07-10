@@ -5,30 +5,28 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: gloms <rbrendle@student.42mulhouse.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/14 17:42:05 by gloms             #+#    #+#             */
-/*   Updated: 2024/07/08 19:57:47 by gloms            ###   ########.fr       */
+/*   Created: 2024/07/04 17:56:13 by gloms             #+#    #+#             */
+/*   Updated: 2024/07/08 20:18:58 by gloms            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "HumanA.hpp"
-#include "HumanB.hpp"
+#include "ClapTrap.hpp"
+#include "ScavTrap.hpp"
+#include "FragTrap.hpp"
 
 int main()
 {
-{
-Weapon club = Weapon("crude spiked club");
-HumanA bob("Bob", club);
-bob.attack();
-club.setType("some other type of club");
-bob.attack();
-}
-{
-Weapon club = Weapon("crude spiked club");
-HumanB jim("Jim");
-jim.setWeapon(club);
-jim.attack();
-club.setType("some other type of club");
-jim.attack();
-}
-return 0;
+	ClapTrap claptrap("Claptrap", 100, 100, 30);
+	ClapTrap claptrap2("Claptrap2", 100, 100, 30);
+	ScavTrap Scavy("Scavynator", 100, 50, 20);
+	FragTrap Fraggy("Fraggynator", 100, 100, 30);
+
+	claptrap.attack("Claptrap2");
+	claptrap2.takeDamage(30);
+	claptrap2.attack("Claptrap");
+	claptrap.takeDamage(30);
+	Scavy.guardGate();
+	Fraggy.attack("Bistouket");
+	Fraggy.highFivesGuys();
+	Fraggy.takeDamage(1000);
 }
