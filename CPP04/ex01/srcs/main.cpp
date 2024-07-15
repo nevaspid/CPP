@@ -6,13 +6,12 @@
 /*   By: gloms <rbrendle@student.42mulhouse.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/13 18:00:34 by gloms             #+#    #+#             */
-/*   Updated: 2024/07/14 20:46:50 by gloms            ###   ########.fr       */
+/*   Updated: 2024/07/15 14:09:07 by gloms            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "classes/Dog/Dog.hpp"
 #include "classes/Cat/Cat.hpp"
-#include "classes/WrongCat/WrongCat.hpp"
 
 int main()
 {
@@ -25,6 +24,18 @@ int main()
 		else
 			CatsAndDogs[i] = new Cat();
 	}
+
+	std::cout << std::endl;
+
 	for (int i = 0; i < 6; i++)
-        delete CatsAndDogs[i]; // Libère chaque objet Animal
+        delete CatsAndDogs[i];
+
+	std::cout << std::endl << std::endl;
+
+	Cat *cat = new Cat;
+	Cat catcpy(*cat);
+
+	std::cout << std::endl;
+
+	delete cat;
 }

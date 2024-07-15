@@ -6,7 +6,7 @@
 /*   By: gloms <rbrendle@student.42mulhouse.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/14 18:37:23 by gloms             #+#    #+#             */
-/*   Updated: 2024/07/14 21:11:23 by gloms            ###   ########.fr       */
+/*   Updated: 2024/07/15 14:10:16 by gloms            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,13 @@ std::string Cat::getType() const {
 Cat::Cat()
 {
 	this->_type = "Cat";
-	this->_brain = new Brain();
 	std::cout << "constructor called for kitty cat of type : " << this->_type << std::endl;
+	this->_brain = new Brain();
 }
 
 Cat::~Cat()
 {
+	delete this->_brain;
 	std::cout << "destructor called for kitty cat" << std::endl;
 }
 
@@ -39,6 +40,8 @@ void Cat::makeSound() const {
 
 Cat &Cat::operator = (const Cat &rhs)
 {
+	std::cout << "Cat assignation operator called" << std::endl;
 	this->_type = rhs._type;
-	return *this;
+	this->_brain = new Brain(*rhs._brain);
+	return (*this);
 }

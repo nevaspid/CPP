@@ -6,7 +6,7 @@
 /*   By: gloms <rbrendle@student.42mulhouse.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/14 18:31:01 by gloms             #+#    #+#             */
-/*   Updated: 2024/07/14 19:59:32 by gloms            ###   ########.fr       */
+/*   Updated: 2024/07/15 14:10:12 by gloms            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,11 @@ Dog::Dog()
 {
 	this->_type = "Dog";
 	std::cout << "constructor called for Doggy dog of type : " << this->_type << std::endl;
+	this->_brain = new Brain();
 }
 
-Dog::~Dog()
-{
+Dog::~Dog() {
+	delete this->_brain;
 	std::cout << "destructor called for doggy dog" << std::endl;
 }
 
@@ -38,6 +39,8 @@ void Dog::makeSound () const {
 
 Dog &Dog::operator = (const Dog &rhs)
 {
+	std::cout << "Dog assignation operator called" << std::endl;
 	this->_type = rhs._type;
-	return *this;
+	this->_brain = new Brain(*rhs._brain);
+	return (*this);
 }

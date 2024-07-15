@@ -6,7 +6,7 @@
 #    By: gloms <rbrendle@student.42mulhouse.fr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/11 17:16:02 by gloms             #+#    #+#              #
-#    Updated: 2024/07/14 19:47:02 by gloms            ###   ########.fr        #
+#    Updated: 2024/07/15 13:57:25 by gloms            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,10 +16,9 @@ NAME		:= main
 
 SRCS		:=	srcs/main.cpp \
 				srcs/classes/Animal/Animal.cpp\
-				srcs/classes/WrongAnimal/WrongAnimal.cpp\
 				srcs/classes/Dog/Dog.cpp\
 				srcs/classes/Cat/Cat.cpp\
-				srcs/classes/WrongCat/WrongCat.cpp\
+				srcs/classes/Brain/Brain.cpp\
 
 
 
