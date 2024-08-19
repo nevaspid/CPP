@@ -1,18 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   IMateriaSource.hpp                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gloms <rbrendle@student.42mulhouse.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/14 17:49:07 by gloms             #+#    #+#             */
-/*   Updated: 2024/08/14 18:01:23 by gloms            ###   ########.fr       */
+/*   Created: 2024/08/15 19:43:42 by gloms             #+#    #+#             */
+/*   Updated: 2024/08/15 19:52:41 by gloms            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "classes/AMateria/AMateria.hpp"
+#pragma once
+#include <iostream>
+#include "../AMateria/AMateria.hpp"
 
-int main()
+class IMateriaSource
 {
-	return 0;
-}
+	public :
+		virtual ~IMateriaSource();
+		virtual void learnMateria(AMateria*) = 0;
+		virtual AMateria *createMateria(std::string const &type) = 0;
+};

@@ -1,18 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   AMateria.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gloms <rbrendle@student.42mulhouse.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/14 17:49:07 by gloms             #+#    #+#             */
-/*   Updated: 2024/08/14 18:01:23 by gloms            ###   ########.fr       */
+/*   Created: 2024/08/14 17:54:10 by gloms             #+#    #+#             */
+/*   Updated: 2024/08/19 14:57:12 by gloms            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "classes/AMateria/AMateria.hpp"
+#pragma once
+#include <iostream>
 
-int main()
+class AMateria
 {
-	return 0;
-}
+	protected :
+		std::string _type;
+	public :
+		~AMateria();
+		AMateria();
+		AMateria(const AMateria &type);
+		AMateria &operator=(const AMateria &rhs);
+		AMateria(std::string const &type);
+
+		std::string const &getType() const; //Returns the materia type
+
+		virtual AMateria *clone() const = 0;
+		virtual void use(ICharacter &target);
+};

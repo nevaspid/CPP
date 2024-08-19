@@ -1,18 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   ICharacter.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gloms <rbrendle@student.42mulhouse.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/14 17:49:07 by gloms             #+#    #+#             */
-/*   Updated: 2024/08/14 18:01:23 by gloms            ###   ########.fr       */
+/*   Created: 2024/08/14 18:30:32 by gloms             #+#    #+#             */
+/*   Updated: 2024/08/16 23:41:41 by gloms            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "classes/AMateria/AMateria.hpp"
+#include <iostream>
+#include "../AMateria/AMateria.hpp"
 
-int main()
+class ICharacter
 {
-	return 0;
+	private :
+		std::string _name;
+	public :
+		virtual ~ICharacter() {}
+		virtual std::string const &getName() const = 0;
+		virtual void equip(AMateria *m) = 0;
+		virtual void unequip(int idx) = 0;
+		virtual void use(int idx, ICharacter &target) = 0;
 }
