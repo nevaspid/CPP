@@ -6,12 +6,13 @@
 /*   By: gloms <rbrendle@student.42mulhouse.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/14 17:54:10 by gloms             #+#    #+#             */
-/*   Updated: 2024/08/19 14:57:12 by gloms            ###   ########.fr       */
+/*   Updated: 2024/08/21 23:21:43 by gloms            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 #include <iostream>
+#include "../ICharacter/ICharacter.hpp"
 
 class AMateria
 {
