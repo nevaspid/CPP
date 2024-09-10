@@ -1,26 +1,14 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cure.hpp                                           :+:      :+:    :+:   */
+/*   Character.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gloms <rbrendle@student.42mulhouse.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/19 14:11:21 by gloms             #+#    #+#             */
-/*   Updated: 2024/08/30 16:23:29 by gloms            ###   ########.fr       */
+/*   Created: 2024/08/30 17:48:08 by gloms             #+#    #+#             */
+/*   Updated: 2024/08/30 17:52:55 by gloms            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
-#include "../AMateria/AMateria.hpp"
+#include "Character.hpp"
 
-class Cure : public AMateria
-{
-	public :
-		Cure();
-		virtual ~Cure();
-		Cure(const Cure &src);
-		Cure &operator = (const Cure &rhs);
-
-		virtual void use(ICharacter &target);
-		virtual Cure *clone() const;
-};

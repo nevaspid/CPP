@@ -1,26 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cure.hpp                                           :+:      :+:    :+:   */
+/*   Ice.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gloms <rbrendle@student.42mulhouse.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/19 14:11:21 by gloms             #+#    #+#             */
-/*   Updated: 2024/08/30 16:23:29 by gloms            ###   ########.fr       */
+/*   Created: 2024/08/23 17:52:50 by gloms             #+#    #+#             */
+/*   Updated: 2024/08/30 16:22:59 by gloms            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 #include "../AMateria/AMateria.hpp"
 
-class Cure : public AMateria
+class Ice : public AMateria
 {
 	public :
-		Cure();
-		virtual ~Cure();
-		Cure(const Cure &src);
-		Cure &operator = (const Cure &rhs);
+		Ice();
+		virtual ~Ice();
+		Ice(const Ice &src);
+		Ice &operator = (const Ice &rhs);
 
 		virtual void use(ICharacter &target);
-		virtual Cure *clone() const;
+		virtual Ice *clone() const;
 };

@@ -1,37 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cure.cpp                                           :+:      :+:    :+:   */
+/*   Ice.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gloms <rbrendle@student.42mulhouse.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/21 21:20:48 by gloms             #+#    #+#             */
-/*   Updated: 2024/08/30 16:26:55 by gloms            ###   ########.fr       */
+/*   Created: 2024/08/23 18:38:38 by gloms             #+#    #+#             */
+/*   Updated: 2024/08/30 16:25:11 by gloms            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Cure.hpp"
+#include "Ice.hpp"
 
-Cure::Cure() {
-	std::cout << "constructor called for cure" << std::endl;
+Ice::Ice() {
+	std::cout << "constructor called for ice" << std::endl;
 }
 
-Cure::~Cure() {
-	std::cout << "destructor called for cure" << std::endl;
+Ice::~Ice() {
+	std::cout << "destructor called for ice" << std::endl;
 }
 
-Cure::Cure(const Cure &src) {
+Ice::Ice(const Ice &src) {
 	std::cout << "copy constructor called for cure" << std::endl;
 }
 
-Cure &Cure::operator = (const Cure &rhs) {
-	return *this; //je vois pas dans quels cas ca peut me servir
+Ice &Ice::operator = (const Ice &rhs) {
+	// TODO: insert return statement here
 }
 
-void Cure::use(ICharacter &target) {
-	std::cout << "heals " << target.getName() << "'s wounds" << std::endl;
+void Ice::use(ICharacter &target) {
+	std::cout << "shoots an ice bolt at" << target.getName() << std::endl;
 }
 
-Cure *Cure::clone() const {
-	return (new Cure());
+Ice *Ice::clone() const {
+	return (new Ice());
 }
