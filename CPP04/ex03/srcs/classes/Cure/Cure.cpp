@@ -6,7 +6,7 @@
 /*   By: gloms <rbrendle@student.42mulhouse.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/21 21:20:48 by gloms             #+#    #+#             */
-/*   Updated: 2024/08/30 16:26:55 by gloms            ###   ########.fr       */
+/*   Updated: 2024/10/01 18:04:18 by gloms            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 Cure::Cure() {
 	std::cout << "constructor called for cure" << std::endl;
+	this->_type = "Cure";
 }
 
 Cure::~Cure() {
@@ -22,10 +23,12 @@ Cure::~Cure() {
 
 Cure::Cure(const Cure &src) {
 	std::cout << "copy constructor called for cure" << std::endl;
+	*this = src;
 }
 
 Cure &Cure::operator = (const Cure &rhs) {
-	return *this; //je vois pas dans quels cas ca peut me servir
+	this->_type = rhs._type;
+	return *this;
 }
 
 void Cure::use(ICharacter &target) {
@@ -34,4 +37,8 @@ void Cure::use(ICharacter &target) {
 
 Cure *Cure::clone() const {
 	return (new Cure());
+}
+
+std::string Cure::getType() {
+	return (this->_type);
 }

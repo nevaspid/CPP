@@ -6,7 +6,7 @@
 /*   By: gloms <rbrendle@student.42mulhouse.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/15 19:43:42 by gloms             #+#    #+#             */
-/*   Updated: 2024/08/15 19:52:41 by gloms            ###   ########.fr       */
+/*   Updated: 2024/10/01 18:38:39 by gloms            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 class IMateriaSource
 {
 	public :
-		virtual ~IMateriaSource();
+		virtual ~IMateriaSource() {}
 		virtual void learnMateria(AMateria*) = 0;
 		virtual AMateria *createMateria(std::string const &type) = 0;
 };

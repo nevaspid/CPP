@@ -6,7 +6,7 @@
 /*   By: gloms <rbrendle@student.42mulhouse.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/23 18:38:38 by gloms             #+#    #+#             */
-/*   Updated: 2024/08/30 16:25:11 by gloms            ###   ########.fr       */
+/*   Updated: 2024/10/01 16:59:09 by gloms            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 Ice::Ice() {
 	std::cout << "constructor called for ice" << std::endl;
+	_type = "Ice";
 }
 
 Ice::~Ice() {
@@ -22,10 +23,12 @@ Ice::~Ice() {
 
 Ice::Ice(const Ice &src) {
 	std::cout << "copy constructor called for cure" << std::endl;
+	*this = src;
 }
 
 Ice &Ice::operator = (const Ice &rhs) {
-	// TODO: insert return statement here
+	this->_type = rhs._type;
+	return (*this);
 }
 
 void Ice::use(ICharacter &target) {
@@ -34,4 +37,8 @@ void Ice::use(ICharacter &target) {
 
 Ice *Ice::clone() const {
 	return (new Ice());
+}
+
+std::string Ice::getType() {
+	return (this->_type);
 }

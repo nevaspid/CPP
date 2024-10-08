@@ -6,7 +6,7 @@
 #    By: gloms <rbrendle@student.42mulhouse.fr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/15 16:19:29 by gloms             #+#    #+#              #
-#    Updated: 2024/07/15 16:20:18 by gloms            ###   ########.fr        #
+#    Updated: 2024/10/01 18:05:48 by gloms            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,9 +15,10 @@ NAME		:= main
 # ------------------------------ Sources -----------------------------
 
 SRCS		:=	srcs/main.cpp \
-				srcs/classes/\
-				srcs/classes/\
-				srcs/classes/\
+				srcs/classes/AMateria/AMateria.cpp\
+				srcs/classes/Character/Character.cpp\
+				srcs/classes/Cure/Cure.cpp\
+				srcs/classes/Ice/Ice.cpp\
 				srcs/classes/\
 
 
