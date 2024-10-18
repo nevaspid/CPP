@@ -6,13 +6,14 @@
 /*   By: gloms <rbrendle@student.42mulhouse.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 20:48:16 by gloms             #+#    #+#             */
-/*   Updated: 2024/10/09 12:22:02 by gloms            ###   ########.fr       */
+/*   Updated: 2024/10/12 17:27:10 by gloms            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 #include <iostream>
 
+class Form;
 class Bureaucrat
 {
 	public :
@@ -28,20 +29,9 @@ class Bureaucrat
 		void upGrade();
 		void downGrade();
 
-		friend std::ostream &operator<<(std::ostream &out, const Bureaucrat &rhs);
+		friend std::ostream &operator << (std::ostream &out, const Bureaucrat &rhs);
 
-		class GradeTooHighException : public std::exception {
-			public :
-				const char *what() const throw() {
-					return "Grade is too high...";
-				}
-		};
-		class GradeTooLowException : public std::exception {
-			public :
-				const char *what() const throw() {
-					return "Grade is too low...";
-				}
-		};
+		void signForm(Form &src);
 
 	private :
 		const std::string 	_name;

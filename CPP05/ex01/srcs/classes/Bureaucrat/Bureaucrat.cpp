@@ -6,11 +6,12 @@
 /*   By: gloms <rbrendle@student.42mulhouse.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 20:48:19 by gloms             #+#    #+#             */
-/*   Updated: 2024/10/09 12:22:39 by gloms            ###   ########.fr       */
+/*   Updated: 2024/10/11 01:02:01 by gloms            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
+#include "../Form/Form.hpp"
 
 Bureaucrat::Bureaucrat() {}
 
@@ -28,9 +29,9 @@ Bureaucrat::Bureaucrat(const Bureaucrat &src) {
 
 Bureaucrat::Bureaucrat(int grade, std::string name) : _name(name), _grade(grade){
 	if (grade < 1)
-		throw GradeTooHighException();
+		throw std::runtime_error("Grade too high...");
 	else if (grade > 150)
-		throw GradeTooLowException();
+		throw std::runtime_error("Grade too low...");
 	std::cout << "constructor called for " << this->_name << " grade : " << this->_grade << std::endl;
 }
 
@@ -55,4 +56,15 @@ void Bureaucrat::downGrade() {
 std::ostream &operator << (std::ostream &out, const Bureaucrat &rhs) {
 	out << rhs.getName() << ", bureaucrat grade " << rhs.getGrade();
 	return out;
+}
+
+void Bureaucrat::signForm(Form &src) {
+	try {
+		src.beSigned(*this);
+		std::cout << this->_name << " signed form : " << src.getName() << std::endl;
+	}
+	catch (const std::exception &e) {
+		std::cout << this->_name << " couldn't sign form " <<
+			src.getName() << " because " << e.what() << std::endl;
+	}
 }
