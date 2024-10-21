@@ -6,7 +6,7 @@
 /*   By: gloms <rbrendle@student.42mulhouse.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 19:31:08 by gloms             #+#    #+#             */
-/*   Updated: 2024/10/18 15:26:14 by gloms            ###   ########.fr       */
+/*   Updated: 2024/10/21 16:37:34 by gloms            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,18 +15,25 @@
 #include "classes/ShrubberyCreationForm/ShrubberyCreationForm.hpp"
 #include "classes/RobotomyRequestForm/RobotomyRequestForm.hpp"
 #include "classes/PresidentialPardonForm/PresidentialPardonForm.hpp"
+#include "classes/Intern/Intern.hpp"
 
 int main()
 {
 	Bureaucrat *inoxtag;
+	Intern *larbin;
+	AForm *internForm;
 	AForm *Form;
 	AForm *Form2;
 	AForm *Form3;
+	larbin = new Intern();
 	Form = new ShrubberyCreationForm("Target");
 	Form2 = new RobotomyRequestForm("Target");
 	Form3 = new PresidentialPardonForm("Target");
 	inoxtag = new Bureaucrat(40, "inoxtag");
+	internForm = larbin->makeForm("Shrubbery", "Michel");
 
+	inoxtag->signForm(*internForm);
+	inoxtag->executeForm(*internForm);
 	inoxtag->signForm(*Form);
 	inoxtag->signForm(*Form2);
 	inoxtag->signForm(*Form3);
@@ -37,5 +44,7 @@ int main()
 	delete Form2;
 	delete Form3;
 	delete inoxtag;
+	delete larbin;
+	delete internForm;
 	return 0;
 }

@@ -6,7 +6,7 @@
 #    By: gloms <rbrendle@student.42mulhouse.fr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/09 12:11:58 by gloms             #+#    #+#              #
-#    Updated: 2024/10/17 15:42:29 by gloms            ###   ########.fr        #
+#    Updated: 2024/10/21 16:33:08 by gloms            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,6 +20,7 @@ SRCS		:=	srcs/main.cpp \
 				srcs/classes/ShrubberyCreationForm/ShrubberyCreationForm.cpp \
 				srcs/classes/RobotomyRequestForm/RobotomyRequestForm.cpp \
 				srcs/classes/PresidentialPardonForm/PresidentialPardonForm.cpp \
+				srcs/classes/Intern/Intern.cpp
 
 
 
