@@ -1,24 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   dataStruct.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gloms <rbrendle@student.42mulhouse.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/16 15:15:58 by gloms             #+#    #+#             */
-/*   Updated: 2024/12/16 15:16:03 by gloms            ###   ########.fr       */
+/*   Created: 2024/12/16 15:14:53 by gloms             #+#    #+#             */
+/*   Updated: 2024/12/16 15:14:55 by gloms            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "class/Base.hpp"
 
-int	main() {
+#pragma once
 
-	Base* ptr = generate();
-	Base& ref = *ptr;
+# include <iostream>
+# include <string>
 
-	identify(ptr);
-	identify(ref);
-
-	delete (ptr);
-}
+struct Data{
+	std::string name;
+	int			age;
+};

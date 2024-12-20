@@ -5,31 +5,26 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: gloms <rbrendle@student.42mulhouse.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/03 14:47:38 by gloms             #+#    #+#             */
-/*   Updated: 2024/11/03 14:50:17 by gloms            ###   ########.fr       */
+/*   Created: 2024/12/16 15:15:00 by gloms             #+#    #+#             */
+/*   Updated: 2024/12/16 15:15:04 by gloms            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Serializer.hpp"
-#include "Data.hpp"
+#include "data/dataStruct.hpp"
+#include "class/serializer.hpp"
 
-int main() {
-	Data*		ptr = new Data;
-	uintptr_t	serialized = 0;
+int	main() {
+	Data data;
 
-	ptr->proof = "Hehehehe";
+	data.age = 24;
+	data.name = "Steve";
 
-	std::cout << "ptr->proof: " << ptr->proof << std::endl;
-	serialized = Serializer::serialize(ptr);
-	std::cout << "serialization" << std::endl;
+	std::cout << "Before serialiation: " << data.age << ", " << data.name << std::endl;
 
-	std::cout << "ptr: " << ptr << std::endl;
-	ptr = NULL;
-	std::cout << "ptr: " << ptr << std::endl;
+	uintptr_t encode = Serializer::serialize(&data);
+	Data *result = Serializer::deserialize(encode);
 
-	ptr = Serializer::deserialize(serialized);
-	std::cout << "deserialization" << std::endl;
-	std::cout << "ptr->proof: " << ptr->proof << std::endl;
+	std::cout << "After serialisation: " << result->age << ", " << result->name << std::endl;
 
-	return 0;
+	return (0);
 }

@@ -1,24 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Base.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gloms <rbrendle@student.42mulhouse.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/16 15:15:58 by gloms             #+#    #+#             */
-/*   Updated: 2024/12/16 15:16:03 by gloms            ###   ########.fr       */
+/*   Created: 2024/12/16 15:15:45 by gloms             #+#    #+#             */
+/*   Updated: 2024/12/16 15:15:48 by gloms            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "class/Base.hpp"
+#pragma once
+# include <iostream>
 
-int	main() {
-
-	Base* ptr = generate();
-	Base& ref = *ptr;
-
-	identify(ptr);
-	identify(ref);
-
-	delete (ptr);
-}
+class Base {
+public:
+	virtual ~Base();
+};
+Base * generate(void);
+void identify(Base* p);
+void identify(Base& p);

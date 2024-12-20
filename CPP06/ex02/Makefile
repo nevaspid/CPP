@@ -5,36 +5,31 @@
 #                                                     +:+ +:+         +:+      #
 #    By: gloms <rbrendle@student.42mulhouse.fr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/07/22 16:59:43 by edelarbr          #+#    #+#              #
-#    Updated: 2024/11/08 13:03:43 by gloms            ###   ########.fr        #
+#    Created: 2024/12/16 15:16:10 by gloms             #+#    #+#              #
+#    Updated: 2024/12/16 15:17:36 by gloms            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		:=	typeinfo
+NAME		:=	identify
 
 # ------------------------------ Sources -----------------------------
 
 SRCS		:=	main.cpp \
-				Base.cpp \
+				class/Base.cpp \
 
 OBJ_DIR		:=	.objs
 OBJS		:=	$(addprefix $(OBJ_DIR)/, $(SRCS:.cpp=.o))
 
 # ------------------------------ Flags -------------------------------
 
-ifeq ($(shell uname -s), Darwin)
-	CXX := c++-11
-else
-	CXX := g++
-endif
-
-CXXFLAGS		:=	-Wall -Wextra -Werror -std=c++98
+BREW		:=	$(shell brew --prefix)
+CC			:=	c++
+FLAGS		:=	-Wall -Wextra -Werror -std=c++98 -fsanitize=address
 RM			:=	rm -rf
-SHELL		:= /bin/bash
 
 $(OBJ_DIR)/%.o :%.cpp
 	@ mkdir -p $(dir $@)
-	@ $(CXX) $(CXXFLAGS) $(INC_RL) -c $< -o $@
+	@ $(CC) $(FLAGS) $(INC_RL) -c $< -o $@
 
 # ------------------------------ Colors ------------------------------
 
@@ -50,9 +45,9 @@ CYAN 		:=	\033[1;36m
 all:			$(NAME)
 
 $(NAME):		$(OBJS)
-				@ echo -e "$(GREEN)Compilation $(CLR_RMV)of $(YELLOW)$(NAME) $(CLR_RMV)..."
-				@ $(CXX) $(CXXFLAGS) -o $(NAME) $(OBJS)
-				@ echo -e "$(YELLOW)$(NAME) $(GREEN)created $(CLR_RMV)✔️"
+				@ echo "$(GREEN)Compilation $(CLR_RMV)of $(YELLOW)$(NAME) $(CLR_RMV)..."
+				@ $(CC) $(FLAGS) -o $(NAME) $(OBJS)
+				@ echo "$(YELLOW)$(NAME) $(GREEN)created $(CLR_RMV)✔️"
 
 
 
@@ -60,11 +55,11 @@ $(NAME):		$(OBJS)
 
 clean:
 				@ $(RM) $(OBJ_DIR)
-				@ echo -e "$(RED)Deleting $(CYAN)$(NAME) $(CLR_RMV)objs ✔️"
+				@ echo "$(RED)Deleting $(CYAN)$(NAME) $(CLR_RMV)objs ✔️"
 
 fclean:			clean
 				@ $(RM) $(NAME) $(RM)
-				@ echo -e "$(RED)Deleting $(CYAN)$(NAME) $(CLR_RMV)binary ✔️"
+				@ echo "$(RED)Deleting $(CYAN)$(NAME) $(CLR_RMV)binary ✔️"
 
 re:				fclean all
 

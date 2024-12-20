@@ -3,38 +3,33 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: gloms <rbrendle@student.42mulhouse.fr>     +#+  +:+       +#+         #
+#    By: mgeisler <mgeisler@student.42mulhouse.f    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/11/03 14:47:51 by gloms             #+#    #+#              #
-#    Updated: 2024/11/03 14:48:57 by gloms            ###   ########.fr        #
+#    Created: 2024/02/19 16:26:41 by mgeisler          #+#    #+#              #
+#    Updated: 2024/02/27 18:11:07 by mgeisler         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		:=	Serialized
+NAME		:=	serializer
 
 # ------------------------------ Sources -----------------------------
 
 SRCS		:=	main.cpp \
-				Serializer.cpp \
+				class/serializer.cpp \
 
 OBJ_DIR		:=	.objs
 OBJS		:=	$(addprefix $(OBJ_DIR)/, $(SRCS:.cpp=.o))
 
 # ------------------------------ Flags -------------------------------
 
-ifeq ($(shell uname -s), Darwin)
-	CXX := c++-11
-else
-	CXX := g++
-endif
-
-CXXFLAGS		:=	-Wall -Wextra -Werror -std=c++98
+BREW		:=	$(shell brew --prefix)
+CC			:=	c++
+FLAGS		:=	-Wall -Wextra -Werror -std=c++98 -fsanitize=address
 RM			:=	rm -rf
-SHELL		:= /bin/bash
 
 $(OBJ_DIR)/%.o :%.cpp
 	@ mkdir -p $(dir $@)
-	@ $(CXX) $(CXXFLAGS) $(INC_RL) -c $< -o $@
+	@ $(CC) $(FLAGS) $(INC_RL) -c $< -o $@
 
 # ------------------------------ Colors ------------------------------
 
@@ -50,9 +45,9 @@ CYAN 		:=	\033[1;36m
 all:			$(NAME)
 
 $(NAME):		$(OBJS)
-				@ echo -e "$(GREEN)Compilation $(CLR_RMV)of $(YELLOW)$(NAME) $(CLR_RMV)..."
-				@ $(CXX) $(CXXFLAGS) -o $(NAME) $(OBJS)
-				@ echo -e "$(YELLOW)$(NAME) $(GREEN)created $(CLR_RMV)✔️"
+				@ echo "$(GREEN)Compilation $(CLR_RMV)of $(YELLOW)$(NAME) $(CLR_RMV)..."
+				@ $(CC) $(FLAGS) -o $(NAME) $(OBJS)
+				@ echo "$(YELLOW)$(NAME) $(GREEN)created $(CLR_RMV)✔️"
 
 
 
@@ -60,11 +55,11 @@ $(NAME):		$(OBJS)
 
 clean:
 				@ $(RM) $(OBJ_DIR)
-				@ echo -e "$(RED)Deleting $(CYAN)$(NAME) $(CLR_RMV)objs ✔️"
+				@ echo "$(RED)Deleting $(CYAN)$(NAME) $(CLR_RMV)objs ✔️"
 
 fclean:			clean
 				@ $(RM) $(NAME) $(RM)
-				@ echo -e "$(RED)Deleting $(CYAN)$(NAME) $(CLR_RMV)binary ✔️"
+				@ echo "$(RED)Deleting $(CYAN)$(NAME) $(CLR_RMV)binary ✔️"
 
 re:				fclean all
 
