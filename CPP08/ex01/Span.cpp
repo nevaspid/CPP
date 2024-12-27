@@ -6,7 +6,7 @@
 /*   By: gloms <rbrendle@student.42mulhouse.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 09:17:37 by gloms             #+#    #+#             */
-/*   Updated: 2024/12/19 19:58:13 by gloms            ###   ########.fr       */
+/*   Updated: 2024/12/23 21:26:01 by gloms            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,13 @@ Span::Span(unsigned int maxSize) : _maxSize(maxSize) {}
 
 Span::~Span() {}
 
+Span::Span(const Span &src) {
+	*this = src;
+}
+
 Span &Span::operator = (const Span &rhs) {
 	this->_maxSize = rhs._maxSize;
+	return *this;
 }
 
 void Span::addNumber(unsigned int number) {
@@ -27,16 +32,22 @@ void Span::addNumber(unsigned int number) {
 }
 
 unsigned int Span::shortestSpan() {
-	unsigned int returnedValue;
+	if (_numbers.size() < 2)
+		throw std::runtime_error("too few argument in container.");
 	std::sort(_numbers.begin(), _numbers.end());
-	for (std::vector<unsigned int>::iterator it = _numbers.begin(); it != _numbers.end(); ++it) {
-
-	}
-
-
+	unsigned int minSpan = std::abs(static_cast<int>(_numbers[1]) - static_cast<int>(_numbers[0]));
+	for (size_t i = 1; i < _numbers.size() - 1; ++i) {
+		unsigned int span = std::abs(static_cast<int>(_numbers[i + 1]) - static_cast<int>(_numbers[i]));
+        if (span < minSpan) {
+            minSpan = span;
+        }
+    }
+	return minSpan;
 }
 
 unsigned int Span::longestSpan() {
+	if (_numbers.size() < 2)
+		throw std::runtime_error("too few argument in container.");
 	std::sort(_numbers.begin(), _numbers.end());
-	return (_numbers.end() - _numbers.begin());
+	return _numbers.back() - _numbers.front();
 }
