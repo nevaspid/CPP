@@ -6,7 +6,7 @@
 #    By: gloms <rbrendle@student.42mulhouse.fr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/17 11:39:01 by gloms             #+#    #+#              #
-#    Updated: 2025/01/31 13:13:07 by gloms            ###   ########.fr        #
+#    Updated: 2025/02/05 15:35:04 by gloms            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,9 @@ NAME		:= RPN
 # ------------------------------ Sources -----------------------------
 
 SRCS		:=	main.cpp \
-				RPN.cpp  \
+				RPNfiles/RPN.cpp  \
+				parser/parser.cpp \
+
 
 
 

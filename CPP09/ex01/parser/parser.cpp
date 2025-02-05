@@ -6,7 +6,7 @@
 /*   By: gloms <rbrendle@student.42mulhouse.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 13:54:50 by gloms             #+#    #+#             */
-/*   Updated: 2025/02/03 15:46:46 by gloms            ###   ########.fr       */
+/*   Updated: 2025/02/05 16:07:40 by gloms            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ bool isNumber(char c) {
 
 bool countNumbers(std::string inputString) {
 	int count = 0;
-	for (int i = 0; i < inputString.size(); i++) {
+	for (unsigned long int i = 0; i < inputString.size(); i++) {
 		if (isNumber(inputString[i]))
 			count++;
 	}
@@ -31,17 +31,9 @@ bool countNumbers(std::string inputString) {
 
 bool countOperators(std::string inputString) {
 	int count = 0;
-	for (int i = 0; i < inputString.size(); i++) {
+	for (unsigned long int i = 0; i < inputString.size(); i++) {
 		if (isOperator(inputString[i]))
 			count++;
 	}
 	return count;
-}
-
-bool parser(std::string inputString) {
-	if (inputString.empty())
-		return false;
-	if (isOperator(inputString[0]))
-		return false;
-	if (countOperators(in))
 }
