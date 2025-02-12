@@ -6,12 +6,13 @@
 /*   By: gloms <rbrendle@student.42mulhouse.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 13:48:35 by gloms             #+#    #+#             */
-/*   Updated: 2025/02/05 15:55:17 by gloms            ###   ########.fr       */
+/*   Updated: 2025/02/12 14:54:40 by gloms            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../parser/parser.hpp"
 #include "RPN.hpp"
+#include "limits.h"
 
 bool RPN(std::string inputString) {
 	std::stack<int> stack;
@@ -22,6 +23,8 @@ bool RPN(std::string inputString) {
 		}
 		else if (inputString[i] == ' ') {
 			if (!number.empty()) {
+				if (std::atoi((number).c_str()) == -1)
+					return false;
 				stack.push(std::atoi((number).c_str()));
 				number = "";
 			}
@@ -42,6 +45,8 @@ bool RPN(std::string inputString) {
 			else if (inputString[i] == '/')
 				stack.push(b / a);
 		}
+		else
+			return false;
 	}
 	if (stack.size() != 1)
 		return false;

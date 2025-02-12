@@ -39,7 +39,7 @@ void printFinalLine(std::string line, const std::map<Date, Value> &exchangeRates
 	Value valueObject(line.substr(13, line.size() - 13));
 	std::map<Date, Value>::const_iterator it = exchangeRates.lower_bound(dateObject);
 
- 	if (it != exchangeRates.end() && it->first != dateObject) {
+ 	if (/*it != exchangeRates.end() && */ it->first != dateObject) {
     	if (it != exchangeRates.begin()) {
       		--it;
         }

@@ -6,15 +6,18 @@
 #    By: gloms <rbrendle@student.42mulhouse.fr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/17 11:39:01 by gloms             #+#    #+#              #
-#    Updated: 2024/12/17 11:41:03 by gloms            ###   ########.fr        #
+#    Updated: 2025/02/05 22:54:13 by gloms            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		:= main
+NAME		:= PmergeMe
 
 # ------------------------------ Sources -----------------------------
 
 SRCS		:=	main.cpp \
+				PmergeMe.cpp \
+				vectorSort.cpp \
+				listSort.cpp \
 
 
 
